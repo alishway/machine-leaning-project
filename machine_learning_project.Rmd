@@ -50,7 +50,7 @@ validation <- training_cleaned[-split_rate,]
 
 ## Selecting the right predictors
 
-In this step, we look at the possibility of removing some of the highly correlated variables. Setting aside variables that are strongly correlated may have substantial effect on the quality of the model. First we remove the target varialbe (classe) (non-numeric) from the training dataset. We used findCorrelation function of "caret" package. This function returns a vector of integers corresponding to columns to remove to reduce pair-wise correlations. As shown below, 20 variables have been detected with high correlation. 
+In this step, we look at the possibility of removing some of the highly correlated variables. We assumed the pair-wise absolute correlation cutoff of 70%. Setting aside variables that are strongly correlated may have substantial effect on the quality of the model. First we remove the target varialbe (classe) (non-numeric) from the training dataset. We used findCorrelation function of "caret" package. This function returns a vector of integers corresponding to columns to remove to reduce pair-wise correlations. As shown below, 20 variables have been detected with high correlation. 
 
 ```{r, echo=TRUE}
 test_correlations <- cor(training[,1:52])
